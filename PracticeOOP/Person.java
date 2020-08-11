@@ -11,7 +11,8 @@ public class Person {
     String dateOfBirth;
     int age;
     String countryOfResidence;
-    Person(String name, String sex, String religion, String languageSpoken, String nationality, String job, String EGN, int age, String countryOfResidence) {
+    Person(String name, String sex, String religion, String languageSpoken, String nationality, String job,
+           String EGN, int age, String countryOfResidence) {
         this.name = name;
         this.sex = sex;
         this.religion = religion;
@@ -21,6 +22,7 @@ public class Person {
         this.EGN = EGN;
         this.age = age;
         this.countryOfResidence = countryOfResidence;
+
     }
     Person(String name, String nationality, int age, String countryOfResidence) {
         this.name = name;
@@ -28,6 +30,7 @@ public class Person {
         this.age = age;
         this.countryOfResidence = countryOfResidence;
     }
+
 
     public String getEGN() {
         return EGN;
@@ -52,6 +55,8 @@ public class Person {
         setDateOfBirth(year + "/" + month + "/" + day);
 
     }
+
+
     public void isAdult() {
         if (countryOfResidence.equalsIgnoreCase("USA")) {
             if (age >= 21) {
@@ -78,7 +83,7 @@ public class Person {
             } else {
                 System.out.println("I'm not adult! I need more " + (18 - age) + " years");
             }
-        } else if (countryOfResidence.equalsIgnoreCase("Italy")) {
+        } else if (countryOfResidence.equalsIgnoreCase("Italy") ) {
             if (age >= 18) {
                 System.out.println("I'm adult! ");
             } else {
@@ -119,7 +124,9 @@ public class Person {
 
     }
     public void canTakeLoan() {
-        if (age >= 18) {
+        if (age <= 17) {
+            System.out.println("You can be adult!");
+        } else{
             if (job.equalsIgnoreCase("QA")) {
                 System.out.println(name + " , you can take loan!");
             } else if (job.equalsIgnoreCase("Teacher")) {
@@ -130,14 +137,12 @@ public class Person {
                 System.out.println(name + " , you can take loan!");
             } else if (job.equalsIgnoreCase("Pilot")) {
                 System.out.println(name + " , you can take loan!");
+            }else {
+                System.out.println(name + ", you can't take loan!");
+                System.out.println("Please get another job!");
             }
-        } else if (age <= 17) {
-            System.out.println("For this option you need to be adult!");
         }
-        else {
-            System.out.println(name + ", you can't take loan!");
-            System.out.println("Please get another job!");
-        }
+
     }
 
 }
